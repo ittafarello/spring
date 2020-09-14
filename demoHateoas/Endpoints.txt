@@ -1,0 +1,13 @@
+Endpoints
+
+Swagger
+http://localhost:8080/v2/api-docs
+http://localhost:8080/swagger-ui/index.html#/
+
+Actuator
+http://localhost:8080/actuator
+http://localhost:8080/browser/index.html#/
+http://localhost:8080/browser/index.html#/actuator
+
+Employees
+http://localhost:8080/employees
