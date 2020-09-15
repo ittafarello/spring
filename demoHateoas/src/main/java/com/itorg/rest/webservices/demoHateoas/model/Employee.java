@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import org.springframework.hateoas.RepresentationModel;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -23,12 +25,16 @@ public class Employee extends RepresentationModel implements Serializable{
 	@ApiModelProperty(notes="The email must have a valida format, this is the regex applied \\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}\\b")
 	private String email;
 	
-	public Employee(Integer employeeId, String firstName, String lastName, String email) {
+	@ApiModelProperty(notes="The password can only be shown to the admin user")
+	private String password;	
+	
+	public Employee(Integer employeeId, String firstName, String lastName, String email, String password) {
 		super();
 		this.employeeId = employeeId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
+		this.password = password;
 	}
 
 	public Integer getEmployeeId() {
@@ -61,6 +67,14 @@ public class Employee extends RepresentationModel implements Serializable{
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	@Override
